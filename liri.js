@@ -48,6 +48,7 @@ else if(userCommand === spotifyThisSong){
 		var userSong = process.argv[3]; 
 		for(var i = 3; i < (process.argv.length-1); i++){
 			userSong = process.argv[i]+ " " + process.argv[i+1]; //building query string
+			console.log(userSong);
 		};
 	};
 	// Show artist(s), the song's name, preview link of the song from Spotify, album that the song is from. default "The Sign" by Ace of Base
@@ -57,8 +58,10 @@ else if(userCommand === spotifyThisSong){
 	        return;
 	    };
 	 
-	    console.log("Artist/s:" + JSON.parse(body).tracks.items[0].album.artists[0].name);
-	    console.log("Artist/s:" + JSON.parse(body).tracks.items[0].album.artists[0].external_urls.spotify);
+	    console.log("Artist/s:" + data.tracks.items[0].album.artists[0].name);
+	    console.log("Spotify URL:" + data.tracks.items[0].album.artists[0].external_urls.spotify);
+	    console.log("Album:" + data.tracks.items[0].album.name);
+
 	});
 
 } //omdb command 
